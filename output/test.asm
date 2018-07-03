@@ -1,7 +1,28 @@
+// ----------------------------------NEW COMMAND ---------------------------------------------
+// pop operand1 operand2
+// push memory_segment index 
 
-// --------Translating ['push', 'constant', '510']----------
- 
-@510
+
+// LCL stored at RAM[1]
+// SP stored at RAM[0]
+
+// for regular operand1
+// operand1 base address to D-reg
+// ------------------------------------------------
+@operand1
+D=M
+
+
+@operand2 
+D=D+A // D = operand1-base + operand2
+A=D   
+D=M  // store the content of RAM[operand1 + operand2]
+
+// ------------------------------------------------
+
+// for push constant operand2
+// -------------------------
+@operand2
 D = A
 
 // -------------------------
@@ -15,43 +36,40 @@ M=D // assign RAM[SP] = content of D
 @SP
 M=M+1
 
+// --------------------------------------------------------------------------------------------
+// ----------------------------------NEW COMMAND ---------------------------------------------
+// pop temp 6
+// pop memory_segment index 
 
-// END OF INSTRUCTION ---------------
- 
- 
 
-// --------Translating ['pop', 'temp', '6']----------
- 
+
 
 // compute the target address from the base address and 6.
 // Push the result onto the stack
-@5
-D=A // store the base address
+@temp
+D=M // store the base address
 
 
 
 @6
-D=D+A // 5-base + 6
+D=D+A // temp-base + 6
 
 @SP
 A = M // select stack.top
 
-// stack.push(5-base + 6)
+// stack.push(temp-base + 6)
 M = D
 
 // stack.pop
 A = A - 1 // select the top of stack
 D = M // D = stack.pop()
 
-A = A + 1 // select stack.top = 5-base + 6
-A = M // select RAM[ 5-base + 6 ]
+A = A + 1 // select stack.top = temp-base + 6
+A = M // select RAM[ temp-base + 6 ]
 
 M = D // push the val into the targetted RAM
 
 @SP
 M = M - 1 // decrement the stack pointer
 
-
-// END OF INSTRUCTION ---------------
- 
- 
+// --------------------------------------------------------------------------------------------

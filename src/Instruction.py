@@ -1,29 +1,5 @@
 '''
-Machine code -- MC
 '''
-
-
-class Translator:
-    def __init__(self, vm_path):
-        pass
-
-    def run(self):
-        pass
-    # set up the generator
-
-    def tokenize(self):
-        pass
-        # and remove whitespace
-        # and tokenize ....
-
-    def Instruction_factory(tokens):
-        operator = tokens[0]
-        operands = tokens[1:]
-
-        instruction_cls = InstructionMeta.register[operator](operator, operands)
-        return instruction_cls
-
-
 
 class InstructionMeta(type):
     register = {}
@@ -37,13 +13,17 @@ class InstructionMeta(type):
 
         return result_cls
 
-
 class Instruction(metaclass=InstructionMeta):
     operators = []
 
     def __init__(self, operator, operands):
         self.operator = operator
         self.operands = operands
+
+    @property
+    def code(self):
+        return self.fill_template()
+
 
     @property
     def template_dir(self):
@@ -55,28 +35,24 @@ class Instruction(metaclass=InstructionMeta):
 
     def fill_template(self):
         template = self.template
-        replace_dict = {"operand" + str(index) : operand for index, operand in self.operands}
+        replace_dict = {"operand" + str(index) : operand for index, operand in enumerate(self.operands) }
 
         return template % replace_dict
 
-class MemoryAcess(Instruction):
+class MemoryAccess(Instruction):
     operators = ['push', 'pop']
+    template_dir = '../templates/mem/'
+    template_map = {'push': 'push.asm', 'pop': 'pop.asm'}
 
+    # @overriden
+    @property
+    def template(self):
+        template_path = MemoryAccess.template_dir + MemoryAccess.template_map[self.operator]
+        f = open(template_path, 'r')
+        template = f.read()
+        f.close()
+        return template
 
 class StackArithmetic(Instruction):
     operators = ['add', 'sub', 'and', 'or', 'eq', 'gt', 'lt', 'neg', 'not']
-
-
-print("Hello")
-print(InstructionMeta.register)
-
-operands = ['local', '0']
-
-
-replace_dict = {'operand' + str(index) : operand for index, operand in enumerate(operands)}
-print(replace_dict)
-stri = "%(operand1)s = whatever it takes dude. Like totally. %(operand1)s" % replace_dict
-
-print(stri)
-
 

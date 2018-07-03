@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4573b1eb-fac3-47b1-aaba-f11552793583" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output/BasicTest.asm" afterPath="$PROJECT_DIR$/output/BasicTest.asm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/mem/pop.asm" afterPath="$PROJECT_DIR$/templates/mem/pop.asm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/mem/push.asm" afterPath="$PROJECT_DIR$/templates/mem/push.asm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/VMTranslator.py" afterPath="$PROJECT_DIR$/src/VMTranslator.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +19,8 @@
       <file leaf-file-name="VMTranslator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/VMTranslator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="101" column="34" lean-forward="false" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+            <state relative-caret-position="51">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -31,8 +29,8 @@
       <file leaf-file-name="Instruction.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Instruction.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="50" column="12" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+            <state relative-caret-position="4">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -69,7 +67,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="250" />
     <option name="y" value="28" />
     <option name="width" value="1391" />
@@ -197,7 +195,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="250" y="28" width="1391" height="967" extended-state="0" />
+    <frame x="250" y="28" width="1391" height="967" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25722757" sideWeight="0.4868421" order="0" side_tool="false" content_ui="combo" />
@@ -285,16 +283,16 @@
     <entry file="file://$PROJECT_DIR$/VMTranslator.py" />
     <entry file="file://$PROJECT_DIR$/src/VMTranslator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="101" column="34" lean-forward="false" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Instruction.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="50" column="12" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+        <state relative-caret-position="4">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>

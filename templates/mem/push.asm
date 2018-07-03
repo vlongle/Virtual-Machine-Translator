@@ -1,25 +1,28 @@
-// push segment index
+// ----------------------------------NEW COMMAND ---------------------------------------------
+// pop operand1 operand2
+// push memory_segment index 
+
+
 // LCL stored at RAM[1]
 // SP stored at RAM[0]
 
-
-// for regular segment
-// segment base address to D-reg
+// for regular operand1
+// operand1 base address to D-reg
 // ------------------------------------------------
-@segment
+@operand1
 D=M
 
 
-@index 
-D=D+A // D = segment-base + index
+@operand2 
+D=D+A // D = operand1-base + operand2
 A=D   
-D=M  // store the content of RAM[segment + index]
+D=M  // store the content of RAM[operand1 + operand2]
 
 // ------------------------------------------------
 
-// for push constant index
+// for push constant operand2
 // -------------------------
-@index
+@operand2
 D = A
 
 // -------------------------
@@ -32,3 +35,5 @@ M=D // assign RAM[SP] = content of D
 // increment SP
 @SP
 M=M+1
+
+// --------------------------------------------------------------------------------------------

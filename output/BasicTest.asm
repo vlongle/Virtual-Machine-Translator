@@ -26,7 +26,9 @@ M=M+1
 // compute the target address from the base address and 0.
 // Push the result onto the stack
 @LCL
-D = M // store the base address
+D=M // store the base address
+
+
 
 @0
 D=D+A // LCL-base + 0
@@ -102,7 +104,9 @@ M=M+1
 // compute the target address from the base address and 2.
 // Push the result onto the stack
 @ARG
-D = M // store the base address
+D=M // store the base address
+
+
 
 @2
 D=D+A // ARG-base + 2
@@ -136,7 +140,9 @@ M = M - 1 // decrement the stack pointer
 // compute the target address from the base address and 1.
 // Push the result onto the stack
 @ARG
-D = M // store the base address
+D=M // store the base address
+
+
 
 @1
 D=D+A // ARG-base + 1
@@ -191,7 +197,9 @@ M=M+1
 // compute the target address from the base address and 6.
 // Push the result onto the stack
 @THIS
-D = M // store the base address
+D=M // store the base address
+
+
 
 @6
 D=D+A // THIS-base + 6
@@ -267,7 +275,9 @@ M=M+1
 // compute the target address from the base address and 5.
 // Push the result onto the stack
 @THAT
-D = M // store the base address
+D=M // store the base address
+
+
 
 @5
 D=D+A // THAT-base + 5
@@ -301,7 +311,9 @@ M = M - 1 // decrement the stack pointer
 // compute the target address from the base address and 2.
 // Push the result onto the stack
 @THAT
-D = M // store the base address
+D=M // store the base address
+
+
 
 @2
 D=D+A // THAT-base + 2
@@ -356,7 +368,9 @@ M=M+1
 // compute the target address from the base address and 6.
 // Push the result onto the stack
 @5
-D = M // store the base address
+D=A // store the base address
+
+
 
 @6
 D=D+A // 5-base + 6
@@ -725,22 +739,22 @@ M = M + 1 // SP ++
 
 // --------Translating ['push', 'temp', '6']----------
  
-// push temp0 6
+// push 5 6
 // LCL stored at RAM[1]
 // SP stored at RAM[0]
 
 
-// for regular temp0
-// temp0 base address to D-reg
+// for regular 5
+// 5 base address to D-reg
 // ------------------------------------------------
-@temp0
-D=M
+@5
+D=A
 
 
 @6 
-D=D+A // D = temp0-base + 6
+D=D+A // D = 5-base + 6
 A=D   
-D=M  // store the content of RAM[temp0 + 6]
+D=M  // store the content of RAM[5 + 6]
 
 // ------------------------------------------------
 

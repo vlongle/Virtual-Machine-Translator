@@ -18,4 +18,4 @@ D, %(operator)s // prepare to jump
 @SP
 A = M - 1
 M = 0 // load back to false
-%(END)s
+(%(END)s)

@@ -4,7 +4,7 @@ class StackArithmetic(Instruction):
     operators = ['add', 'sub', 'and', 'or', 'eq', 'gt', 'lt', 'neg', 'not']
     template_dir = '../templates/arithlogic/'
     instruction_map = {'add': '+', 'sub': '-', 'and' : '&', 'or' : '|', \
-                        'eq': 'JEQ', 'gt': 'JGT', 'lt':  'JTL', 'neg' : '-', 'not' : '!', \
+                        'eq': 'JEQ', 'gt': 'JGT', 'lt':  'JLT', 'neg' : '-', 'not' : '!', \
                         'currentEND': 0}
 
 

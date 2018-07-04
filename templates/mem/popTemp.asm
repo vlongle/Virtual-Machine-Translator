@@ -1,16 +1,5 @@
 // ----------------------------------NEW COMMAND ---------------------------------------------
-// push constant 510
-// push constant index
-@510
-D = A // D = index
-
-@SP
-M = M + 1 // increment stack pointer
-A = M - 1
-M = D
-// --------------------------------------------------------------------------------------------
-// ----------------------------------NEW COMMAND ---------------------------------------------
-// pop temp 6
+// pop %(operand0)s %(operand1)s
 // pop temp index 
 
 
@@ -22,21 +11,21 @@ D=A // store the base address
 
 
 
-@6
-D=D+A // temp-base + 6
+@%(operand1)s
+D=D+A // %(operand0)s-base + %(operand1)s
 
 @SP
 A = M // select stack.top
 
-// stack.push(temp-base + 6)
+// stack.push(%(operand0)s-base + %(operand1)s)
 M = D
 
 // stack.pop
 A = A - 1 // select the top of stack
 D = M // D = stack.pop()
 
-A = A + 1 // select stack.top = temp-base + 6
-A = M // select RAM[ temp-base + 6 ]
+A = A + 1 // select stack.top = %(operand0)s-base + %(operand1)s
+A = M // select RAM[ %(operand0)s-base + %(operand1)s ]
 
 M = D // push the val into the targetted RAM
 

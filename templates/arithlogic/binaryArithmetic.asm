@@ -10,10 +10,4 @@ A = M // select RAM[stack.top]
 
 D = M // D = stack.pop()
 A = A - 1 // continue to select the RAM after the stack next pop
-D = M %(operator)s D // store the result to D
-@LOADTRUE
-D, %(operator)s // if satisfied. Jump
-
-(LOADTRUE)
-M = -1 // -1 is true in asm
-
+M = M %(operator)s D // store the result to D

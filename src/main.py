@@ -27,8 +27,5 @@ def main():
 
 
 if __name__ == "__main__":
-    time_total = 0
-    for i in range(100):
-        time_total += main()
+    main()
 
-    print("Average time is", time_total/100)

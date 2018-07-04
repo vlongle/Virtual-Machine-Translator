@@ -1,20 +1,21 @@
 '''
 '''
 
-class InstructionMeta(type):
-    register = {}
 
-    def __new__(cls, name, bases, local_dict):
-        result_cls = type.__new__(cls, name, bases, local_dict)
-        operators = local_dict["operators"]
-
-        if operators:
-            InstructionMeta.register.update(dict.fromkeys(operators, result_cls))
-
-        return result_cls
-
-class Instruction(metaclass=InstructionMeta):
+#class InstructionMeta(type):
+#    register = {}
+#    def __new__(cls, name, bases, local_dict):
+#        result_cls = type.__new__(cls, name, bases, local_dict)
+#        operators = local_dict["operators"]
+#
+#        if operators:
+#            InstructionMeta.register.update(dict.fromkeys(operators, result_cls))
+#
+#        return result_cls
+#
+class Instruction():
     operators = []
+    template_files = {}
 
     def __init__(self, operator, operands):
         self.operator = operator
@@ -39,20 +40,5 @@ class Instruction(metaclass=InstructionMeta):
 
         return template % replace_dict
 
-class MemoryAccess(Instruction):
-    operators = ['push', 'pop']
-    template_dir = '../templates/mem/'
-    template_map = {'push': 'push.asm', 'pop': 'pop.asm'}
 
-    # @overriden
-    @property
-    def template(self):
-        template_path = MemoryAccess.template_dir + MemoryAccess.template_map[self.operator]
-        f = open(template_path, 'r')
-        template = f.read()
-        f.close()
-        return template
-
-class StackArithmetic(Instruction):
-    operators = ['add', 'sub', 'and', 'or', 'eq', 'gt', 'lt', 'neg', 'not']
-
+print("THIS IS INSTRUCTION")

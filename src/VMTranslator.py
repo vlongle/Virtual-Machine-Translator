@@ -1,12 +1,13 @@
 import os
-from Instruction import *
+from Instruction import Instruction
+from MemoryAccess import MemoryAccess
 
 class Translator:
     def __init__(self, vmpath):
         self.file_name = os.path.basename(vmpath).split('.')[0] # remove .vm extension
         self.vmpath = vmpath
         self.asm_path = os.path.join('..', 'output', self.file_name + '.asm')
-
+        self.register = self.make_register()
 
     def run(self):
         self.vmfile = open(self.vmpath, 'r')
@@ -30,12 +31,19 @@ class Translator:
            else:
                 continue
 
-    @staticmethod
-    def instruction_factory(tokens):
+
+    def make_register(self):
+        register = {}
+        for subcls in Instruction.__subclasses__():
+            operators = subcls.operators
+            register.update(dict.fromkeys(operators, subcls))
+        return register
+
+    def instruction_factory(self,tokens):
         operator = tokens[0]
         operands = tokens[1:]
 
-        instruction_cls = InstructionMeta.register[operator](operator, operands)
+        instruction_cls = self.register[operator](operator, operands)
         return instruction_cls
 
     def exit(self):

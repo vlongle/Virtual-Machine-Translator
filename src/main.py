@@ -4,7 +4,7 @@ import sys
 from VMTranslator import Translator
 
 def main():
-    try:
+   # try:
         file_path = os.path.join('..', 'input', sys.argv[1])
 
         translator = Translator(file_path)
@@ -20,9 +20,9 @@ def main():
         time_cost = end_time - start_time
         print('Finished translation in ', time_cost)
         return time_cost
-    except:
-        print("Please<Plug>PeepOpenut the .vm file in the ./input dir  and supply its name as the argument")
-        raise SystemExit(1)
+   # except:
+   #     print("Please<Plug>PeepOpenut the .vm file in the ./input dir  and supply its name as the argument")
+   #     raise SystemExit(1)
 
 
 

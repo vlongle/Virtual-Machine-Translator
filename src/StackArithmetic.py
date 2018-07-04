@@ -4,7 +4,8 @@ class StackArithmetic(Instruction):
     operators = ['add', 'sub', 'and', 'or', 'eq', 'gt', 'lt', 'neg', 'not']
     template_dir = '../templates/arithlogic/'
     instruction_map = {'add': '+', 'sub': '-', 'and' : '&', 'or' : '|', \
-                        'eq': 'JEQ', 'gt': 'JGT', 'lt':  'JTL', 'neg' : '-', 'not' : '!'}
+                        'eq': 'JEQ', 'gt': 'JGT', 'lt':  'JTL', 'neg' : '-', 'not' : '!', \
+                        'currentEND': 0}
 
 
     @property
@@ -15,6 +16,9 @@ class StackArithmetic(Instruction):
             template_path += 'unary.asm'
         elif operator == 'eq' or operator == 'gt' or operator == 'lt':
             template_path += 'binaryLogic.asm'
+
+            self.replace_dict['END'] = 'END' + str(self.instruction_map['currentEND'])
+            self.instruction_map['currentEND'] +=1
         else:
             template_path += 'binaryArithmetic.asm'
 

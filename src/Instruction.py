@@ -15,6 +15,7 @@
 #
 class Instruction():
     operators = []
+    replace_dict = {}
 
     def __init__(self, operator, operands):
         self.operator = operator
@@ -40,10 +41,11 @@ class Instruction():
             self.operator = self.instruction_map[self.operator]
         except:
             pass
-        replace_dict = {"operand" + str(index) : operand for index, operand in enumerate(self.operands) }
-        replace_dict['operator'] = self.operator
+        operand_dict = {"operand" + str(index) : operand for index, operand in enumerate(self.operands)}
+        self.replace_dict.update(operand_dict)
+        self.replace_dict['operator'] = self.operator
 
         # all the templates .asm are formatted to support string interpolation
-        return template % replace_dict
+        return template % self.replace_dict
 
 

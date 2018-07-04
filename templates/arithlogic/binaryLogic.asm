@@ -10,5 +10,12 @@ A = M // select RAM[stack.top]
 
 D = M // D = stack.pop()
 A = A - 1 // continue to select the RAM after the stack next pop
-M = M -  D // store the result
-M, %(operator)s // prepare to jump
+D = M -  D // store the result
+
+M = -1 // M is true by default
+@%(END)s
+D, %(operator)s // prepare to jump
+@SP
+A = M - 1
+M = 0 // load back to false
+%(END)s

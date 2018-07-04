@@ -15,7 +15,6 @@
 #
 class Instruction():
     operators = []
-    template_files = {}
 
     def __init__(self, operator, operands):
         self.operator = operator
@@ -34,11 +33,12 @@ class Instruction():
     def template(self):
         pass
 
+
     def fill_template(self):
         template = self.template
         replace_dict = {"operand" + str(index) : operand for index, operand in enumerate(self.operands) }
 
+        # all the templates .asm are formatted to support string interpolation
         return template % replace_dict
 
 
-print("THIS IS INSTRUCTION")

@@ -15,6 +15,12 @@ class MemoryAccess(ins.Instruction):
     template_dir = '../templates/mem/'
     template_map = {'push': 'push.asm', 'pop': 'pop.asm',
             'push constant' : 'pushConstant.asm', 'pop static': 'popStatic.asm'}
+    instruction_map  = {'this': 'THIS', 'that' : 'THAT', 'local': 'LCL', 'argument': 'ARG',\
+                        'constant': 'constant'}
+
+    def __init__(self, operator, operands):
+        super().__init__( operator, operands)
+        operands[0] = self.instruction_map[operands[0]]
 
     # @overriden
     @property

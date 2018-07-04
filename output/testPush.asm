@@ -1,22 +1,22 @@
 // ----------------------------------NEW COMMAND ---------------------------------------------
-// pop %(operand0)s %(operand1)s
+// pop LCL 2
 // push memory_segment index 
 
 
 // LCL stored at RAM[1]
 // SP stored at RAM[0]
 
-// for regular %(operand0)s
-// %(operand0)s base address to D-reg
+// for regular LCL
+// LCL base address to D-reg
 // ------------------------------------------------
-@%(operand0)s
+@LCL
 D=M
 
 
-@%(operand1)s 
-D=D+A // D = %(operand0)s-base + %(operand1)s
+@2 
+D=D+A // D = LCL-base + 2
 A=D   
-D=M  // store the content of RAM[%(operand0)s + %(operand1)s]
+D=M  // store the content of RAM[LCL + 2]
 
 // ------------------------------------------------
 

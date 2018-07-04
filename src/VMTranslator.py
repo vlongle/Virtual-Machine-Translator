@@ -1,6 +1,7 @@
 import os
 from Instruction import Instruction
 from MemoryAccess import MemoryAccess
+from StackArithmetic import StackArithmetic
 
 class Translator:
     def __init__(self, vmpath):
@@ -42,7 +43,6 @@ class Translator:
     def instruction_factory(self,tokens):
         operator = tokens[0]
         operands = tokens[1:]
-
         instruction_cls = self.register[operator](operator, operands)
         return instruction_cls
 

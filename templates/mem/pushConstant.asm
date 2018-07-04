@@ -1,6 +1,6 @@
 // ----------------------------------NEW COMMAND ---------------------------------------------
-// pop constant %(operand1)s
-// pop constant index
+// push constant %(operand1)s
+// push constant index
 @%(operand1)s
 D = A // D = index
 

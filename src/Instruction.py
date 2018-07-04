@@ -36,7 +36,12 @@ class Instruction():
 
     def fill_template(self):
         template = self.template
+        try:
+            self.operator = self.instruction_map[self.operator]
+        except:
+            pass
         replace_dict = {"operand" + str(index) : operand for index, operand in enumerate(self.operands) }
+        replace_dict['operator'] = self.operator
 
         # all the templates .asm are formatted to support string interpolation
         return template % replace_dict

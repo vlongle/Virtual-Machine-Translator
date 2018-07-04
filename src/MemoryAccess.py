@@ -1,15 +1,5 @@
 import Instruction as ins
 
-#class InstructionMeta(type):
-#    register = {}
-#    def __new__(cls, name, bases, local_dict):
-#        result_cls = type.__new__(cls, name, bases, local_dict)
-#        operators = local_dict["operators"]
-#
-#        if operators:
-#            InstructionMeta.register.update(dict.fromkeys(operators, result_cls))
-#
-#        return result_cls
 class MemoryAccess(ins.Instruction):
     operators = ['push', 'pop']
     template_dir = '../templates/mem/'
@@ -20,7 +10,7 @@ class MemoryAccess(ins.Instruction):
 
     def __init__(self, operator, operands):
         super().__init__( operator, operands)
-        operands[0] = self.instruction_map[operands[0]]
+        self.operands[0] = self.instruction_map[self.operands[0]]
 
     # @overriden
     @property

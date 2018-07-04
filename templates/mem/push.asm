@@ -1,5 +1,5 @@
 // ----------------------------------NEW COMMAND ---------------------------------------------
-// pop %(operand0)s %(operand1)s
+// push %(operand0)s %(operand1)s
 // push memory_segment index 
 
 

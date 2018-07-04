@@ -9,4 +9,15 @@ M = M + 1 // increment stack pointer
 A = M - 1
 M = D
 // --------------------------------------------------------------------------------------------
-../templates/arithlogic/unary.asm
+// ----------------------------------NEW COMMAND ---------------------------------------------
+// ! 
+//   not / neg
+// deal with unary operators including neg (-) and not (!)
+
+// stack.pop
+@SP  // 257
+A = M - 1 // A = 256 = RAM[A] = M = 24
+
+M = ! M // (neg or not) inserted here
+// D = result
+

@@ -1,0 +1,25 @@
+// local 0 stores the sum
+// arg 0 stores the n
+
+push constant 0
+pop local 0
+
+// Work
+
+label LOOP_START
+push argument 0
+push local 0
+add 
+pop local 0 // add 0 to 3  = 3
+// WORKED
+
+// decrement n & push it onto the stack
+push argument 0
+push constant 1
+sub
+pop argument 0
+push argument 0
+
+if-goto LOOP_START
+
+push constant 69

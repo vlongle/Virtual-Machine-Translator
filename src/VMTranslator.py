@@ -2,6 +2,8 @@ import os
 from Instruction import Instruction
 from MemoryAccess import MemoryAccess
 from StackArithmetic import StackArithmetic
+from Branching import Branching
+
 
 class Translator:
     def __init__(self, vmpath):

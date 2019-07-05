@@ -1,19 +1,7 @@
-'''
-'''
 
-
-#class InstructionMeta(type):
-#    register = {}
-#    def __new__(cls, name, bases, local_dict):
-#        result_cls = type.__new__(cls, name, bases, local_dict)
-#        operators = local_dict["operators"]
-#
-#        if operators:
-#            InstructionMeta.register.update(dict.fromkeys(operators, result_cls))
-#
-#        return result_cls
-#
-class Instruction():
+class SuperInstruction:
+    pass
+class Instruction(SuperInstruction):
     operators = []
     replace_dict = {}
 
@@ -24,11 +12,6 @@ class Instruction():
     @property
     def code(self):
         return self.fill_template()
-
-
-    @property
-    def template_dir(self):
-        return type(self).__name__
 
     @property
     def template(self):
@@ -47,5 +30,4 @@ class Instruction():
 
         # all the templates .asm are formatted to support string interpolation
         return template % self.replace_dict
-
 

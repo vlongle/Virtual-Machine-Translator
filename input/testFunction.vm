@@ -1,0 +1,19 @@
+function testFunction.Main 2 
+push constant 69
+push constant 10 
+call testFunction.Add 2 // 2 arguments
+// SHOULD RETURN 79
+pop local 0 // store the result to local 0
+push constant 20
+push local 0
+sub
+// should return -59.
+return
+
+
+// add 2 numbers
+function testFunction.Add 0
+push argument 0
+push argument 1
+add 
+return 
